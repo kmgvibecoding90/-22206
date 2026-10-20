@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Первая неделя в компании</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="storage-banner" class="banner-warning" role="alert" hidden>
+    <span data-i18n="storage_off">Прогресс не сохранится в этом браузере</span>
+  </div>
+
+  <div class="container">
+    <header class="site-header">
+      <div class="header-text">
+        <h1 data-i18n="title">Первая неделя в компании</h1>
+        <p class="subtitle" data-i18n="subtitle">Отмечайте выполненные задачи</p>
+      </div>
+      <div class="lang-switch" role="group" data-i18n-aria="lang_label" aria-label="Язык интерфейса">
+        <button type="button" class="lang-btn" data-lang="ru" aria-pressed="true">RU</button>
+        <button type="button" class="lang-btn" data-lang="kk" aria-pressed="false">KZ</button>
+      </div>
+    </header>
+
+    <nav>
+      <div id="tabs" class="tabs" role="tablist" data-i18n-aria="days_label" aria-label="Дни недели"></div>
+    </nav>
+
+    <main id="panel" class="day-card" role="tabpanel" tabindex="0">
+      <div class="day-head">
+        <p id="day-label" class="day-label"></p>
+        <h2 id="day-theme" class="day-theme"></h2>
+      </div>
+
+      <div class="progress-row">
+        <p id="counter" class="counter" aria-live="polite"></p>
+        <div class="progress" aria-hidden="true"><div id="progress-bar" class="progress-bar"></div></div>
+      </div>
+
+      <div id="complete-banner" class="banner-complete" hidden>
+        <span aria-hidden="true">✓</span> <span data-i18n="day_complete">День выполнен!</span>
+      </div>
+
+      <ul id="task-list" class="task-list"></ul>
+
+      <form id="add-form" class="add-form" novalidate>
+        <input id="add-input" type="text" maxlength="200" autocomplete="off"
+               data-i18n-placeholder="add_placeholder" placeholder="Добавить свою задачу…"
+               data-i18n-aria="add_placeholder" aria-label="Добавить свою задачу…">
+        <button type="submit" class="btn btn-primary" data-i18n="add">Добавить</button>
+      </form>
+
+      <div class="notes">
+        <div class="notes-head">
+          <label for="notes-input" data-i18n="notes">Заметки на день</label>
+          <span id="saved-label" class="saved" aria-live="polite"></span>
+        </div>
+        <textarea id="notes-input" rows="4"></textarea>
+      </div>
+    </main>
+
+    <footer class="site-footer">
+      <button type="button" id="reset-btn" class="btn btn-ghost" data-i18n="reset">Сбросить прогресс</button>
+    </footer>
+  </div>
+
+  <script src="data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
